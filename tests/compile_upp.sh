@@ -28,7 +28,7 @@ set_defaults() {
     more=" "
     verbose_opt=""
     debug_opt=""
-    compiler="intel"
+    compiler="gnu"
 }
 
 usage() {

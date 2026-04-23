@@ -47,6 +47,9 @@ case $(hostname -f) in
   login0[1-2].expanse.sdsc.edu) MACHINE_ID=expanse ;; ### expanse1-2
 
   discover3[1-5].prv.cube) MACHINE_ID=discover ;; ### discover31-35
+
+  *scheduler*) MACHINE_ID=azure ;; ### native azure cyclecloud
+
   *) MACHINE_ID=UNKNOWN ;;  # Unknown platform
 esac
 
@@ -110,6 +113,9 @@ elif [[ -d /gpfs/f6 ]]; then
 elif [[ -d /data/prod ]]; then
   # We are on SSEC's S4
   MACHINE_ID=s4
+elif [[ -d /shared ]]; then
+  # We are on native Azure Cyclecloud
+  MACHINE_ID=azure
 elif [[ -d /opt/spack-stack && -v SINGULARITY_CONTAINER ]]; then
   # We are in a container
   MACHINE_ID=container
