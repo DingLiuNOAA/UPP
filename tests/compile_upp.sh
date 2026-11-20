@@ -29,7 +29,7 @@ set_defaults() {
     more=" "
     verbose_opt=""
     debug_opt=""
-    compiler="intel"
+    compiler="intelllvm"
 }
 
 usage() {
@@ -131,7 +131,7 @@ if [[ $MACHINE_ID != "unknown" ]]; then
        # Unset the read-only variables $PELOCAL_PRGENV and $RCLOCAL_PRGENV
        gdb -ex 'call (int) unbind_variable("PELOCAL_PRGENV")' \
            -ex 'call (int) unbind_variable("RCLOCAL_PRGENV")' \
-           --pid=$$ --batch
+           --pid=$$ --batch || true
    else
       module purge
    fi

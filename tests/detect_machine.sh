@@ -23,6 +23,8 @@ case $(hostname -f) in
 
   gaea6[1-8])          MACHINE_ID=gaeac6 ;; ### gaea61-68
   gaea6[1-8].ncrc.gov) MACHINE_ID=gaeac6 ;; ### gaea61-68
+  gaea7[1-8])          MACHINE_ID=gaeac7 ;; ### gaea71-78
+  gaea7[1-8].ncrc.gov) MACHINE_ID=gaeac7 ;; ### gaea71-78
 
   hfe0[1-9]) MACHINE_ID=hera ;;   ### hera01-09
   hfe1[01]) MACHINE_ID=hera ;;   ### hera10-11
@@ -111,6 +113,9 @@ elif [[ -d /work ]]; then
 elif [[ -d /gpfs/f6 ]]; then
   # We are on GAEAC6.
   MACHINE_ID=gaeac6
+elif [[ -d /gpfs/f7 ]]; then
+  # We are on GAEAC7.
+  MACHINE_ID=gaeac7
 elif [[ -d /data/prod ]]; then
   # We are on SSEC's S4
   MACHINE_ID=s4
